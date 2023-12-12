@@ -66,6 +66,7 @@ function display() {
 }
 
 var mergeTwoLists = function(l1, l2) {
+  debugger;
   // 模仿链表的数据结构
   var mergedHead = { val : -1, next : null }, // 哨兵节点
     cur = mergedHead;
@@ -110,7 +111,7 @@ function reverseList(head) {
   }
   let prev = null;
   let curNode = head; 
-  while(head !== null) {
+  while(curNode !== null) {
     // 此步很关键，让 curNode 等于原链表剩余部分 指向 next(新建一个引用|指针)
     const next = curNode.next;
     // 链表剩余部分已被赋值给 next，所以此处可以直接修改 curNode.next
@@ -153,6 +154,23 @@ function reverseList(head) {
 }
 
 
+/**
+ * 递归解法
+ * @param {*} head 
+ * @returns 
+ */
+var reverseList = function(head) {
+  debugger;
+  if (head == null || head.next == null) {
+      return head;
+  }
+  const newHead = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return newHead;
+};
+
+
 // 链表中环的检测
 // 解决思路：1.快慢指针，2.哈希表??
 /**
@@ -160,21 +178,39 @@ function reverseList(head) {
  * @return {boolean}
  */
 var hasCycle = function(head) {
-  if(head === null || head.next === null) {
-    return false;
-  }
+  // if(head === null || head.next === null) {
+  //   return false;
+  // }
+  // let slow = head;
+  // let fast = head.next;
+  // while(slow !== fast) {
+  //   if(fast === null || fast.next === null) {
+  //     return false;
+  //   }
+  //   slow = slow.next;
+  //   fast = fast.next.next;
+  // }
+  // return true;
+  const hashMap = new Map();
+  const i = 0;
   let slow = head;
-  let fast = head.next;
-  while(slow !== fast) {
-    if(fast === null || fast.next === null) {
-      return false;
+  while (slow !== null) {
+    if(hashMap.has(slow)) {
+      return true;
     }
+    hashMap.set(slow, i);
     slow = slow.next;
-    fast = fast.next.next;
   }
-  return true;
+  return false;
 };
 
 
-
-
+/**
+ * todo 
+ * 单链表反转
+ * 链表中环的检测
+ * 两个有序的链表合并
+ * 删除链表倒数第 n 个结点
+ * 求链表的中间结点
+ * leetCode 对应编号 206，141，21，19，876
+ */

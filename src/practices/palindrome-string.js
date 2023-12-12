@@ -10,7 +10,7 @@ function isPalindrome(head) {
   let prev = null;
   let slow = head;
   let fast = head;
-
+  debugger;
   // 快慢指针找出中间节点
   while(fast !== null && fast.next !== null) {
     fast = fast.next.next;

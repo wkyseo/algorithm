@@ -23,3 +23,9 @@
 
 
 公司算法参考：https://km.woa.com/group/29321/articles/show/496682?kmref=dailymail_top&jumpfrom=daily_mail
+
+力扣刷题思路：https://github.com/youngyangyang04/leetcode-master
+
+js 算法题：https://github.com/trekhleb/javascript-algorithms.git
+
+王争课程算法：https://github.com/wangzheng0822/algo.git
